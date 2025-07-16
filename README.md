@@ -100,6 +100,16 @@ docker run -p 8080:8080 your-image-name:latest
 
 ---
 
+## 📦 Project Summary
+
+This is a small Java application built with Gradle, designed to demonstrate a complete CI/CD pipeline using TeamCity, GitHub, and DockerHub.
+
+The workflow starts by pushing the project code to GitHub. In TeamCity, we manually created a build configuration that automatically pulls the latest code from GitHub whenever new changes are pushed. TeamCity then runs the Gradle build, creates a Docker image using the provided Dockerfile, and tags it with a version (e.g., v1.0, v1.1, etc.). After building, TeamCity connects to DockerHub and pushes the newly built version-tagged Docker image.
+
+Additionally, the pipeline is configured with triggers so that any new commit to GitHub automatically starts a new build in TeamCity, creating and pushing the latest Docker image. This ensures that every code change results in an updated versioned Docker image stored in DockerHub and keeps the GitHub repository updated as the single source of truth.
+
+This project demonstrates how to integrate source control (GitHub), build automation (TeamCity), and containerization (DockerHub) to build a robust, versioned, and automated CI/CD pipeline.
+
 ## 📌 License
 
 This project is open-source and available under the MIT License.
